@@ -70,27 +70,78 @@ public class JavafxSample extends Application {
         background_titledpane.setLayoutY(1);
         
         //settings for music
+//        RadioButton button4 = new RadioButton("HBase");
+//        RadioButton button5 = new RadioButton("MongoDB");
+//        RadioButton button6 = new RadioButton("Neo4j");
+//        ToggleGroup group2 = new ToggleGroup();
+//        group2.getToggles().addAll(button4, button5, button6);
+        
+//        VBox music_vbox = new VBox(10);
+//        music_vbox.setPadding(new Insets(10));
+//        music_vbox.getChildren().addAll(button4, button5, button6);
+        
+//        TitledPane music_titledpane = new TitledPane("Music", music_vbox);
+//        music_titledpane.setLayoutX(1);
+//        music_titledpane.setLayoutY(1);
+        
+        //settings for decorations
         RadioButton button4 = new RadioButton("HBase");
         RadioButton button5 = new RadioButton("MongoDB");
         RadioButton button6 = new RadioButton("Neo4j");
         ToggleGroup group2 = new ToggleGroup();
         group2.getToggles().addAll(button4, button5, button6);
-        
         VBox music_vbox = new VBox(10);
         music_vbox.setPadding(new Insets(10));
         music_vbox.getChildren().addAll(button4, button5, button6);
-        
         TitledPane music_titledpane = new TitledPane("Music", music_vbox);
         music_titledpane.setLayoutX(1);
         music_titledpane.setLayoutY(1);
         
-        //settings for decorations
         VBox decorations_vbox = new VBox(10);
         decorations_vbox.setPadding(new Insets(10));
+        
         
         TitledPane decorations_titledpane = new TitledPane("Decorations", decorations_vbox);
         decorations_titledpane.setLayoutX(1);
         decorations_titledpane.setLayoutY(1);
+        
+        CNYDecoration cny = new CNYDecoration();
+        cny.selectDecoration();
+        designPane.getChildren().addAll(cny);
+//        DecorationItem di = new DecorationResize(cny);
+//        di.selectDecoration();
+        
+        Text txt_x_axis_deco = new Text("X_AXIS");
+        Text txt_y_axis_deco = new Text("Y_AXIS");
+        Text txt_scale_deco = new Text("SCALE");
+        
+        Slider x_slider_deco = new Slider(0, 100, 0);
+        Slider y_slider_deco = new Slider(0, 100, 0);
+        Slider size_slider_deco = new Slider(1, 200, 200);
+        
+        
+        x_slider_deco.valueProperty().addListener((ObservableValue<? extends Number> ov, Number t, Number t1) -> {
+            DecorationItem di = new DecorationLocation(cny);
+            di.location(x_slider_deco.getValue(), design_width-150, "horizontal", di);
+        });
+        
+        y_slider_deco.valueProperty().addListener((ObservableValue<? extends Number> ov, Number t, Number t1) -> {
+            DecorationItem di = new DecorationLocation(cny);
+            di.location(y_slider_deco.getValue(), design_height-100, "vertical", di);
+        });
+        
+        size_slider_deco.valueProperty().addListener((ObservableValue<? extends Number> ov, Number t, Number t1) -> {
+//            imageView.update(size_slider.getValue());
+            DecorationItem di = new DecorationResize(cny);
+            di.resize(size_slider_deco.getValue(),di);
+        });
+        decorations_vbox.getChildren().addAll(
+                txt_x_axis_deco,
+                x_slider_deco,
+                txt_y_axis_deco,
+                y_slider_deco,
+                txt_scale_deco,
+               size_slider_deco );
         
         //settings for animation
         VBox animation_vbox = new VBox(10);
@@ -103,9 +154,6 @@ public class JavafxSample extends Application {
         //settings for food
         FoodItem imageView = new YeeSang().setItem(); 
         designPane.getChildren().addAll(imageView);
-        CNYDecoration cny = new CNYDecoration();
-        cny.selectDecoration();
-        designPane.getChildren().addAll(cny);
         
         RadioButton btn_raya = new RadioButton("Raya");
         RadioButton btn_cny = new RadioButton("CNY");
@@ -121,7 +169,7 @@ public class JavafxSample extends Application {
         Slider x_slider = new Slider(0, 100, 0);
         Slider y_slider = new Slider(0, 100, 0);
         Slider size_slider = new Slider(1, 200, 200);
-        
+
         x_slider.valueProperty().addListener((ObservableValue<? extends Number> ov, Number t, Number t1) -> {
             imageView.update(x_slider.getValue(), design_width-150, "horizontal");
         });

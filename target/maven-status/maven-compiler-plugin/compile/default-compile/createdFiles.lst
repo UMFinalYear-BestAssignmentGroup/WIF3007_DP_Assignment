@@ -8,4 +8,5 @@ YeeSang.class
 com\melvinedward\javafx_test\App.class
 FoodItem.class
 FoodObserver.class
+DecorationLocation.class
 DecorationResize.class

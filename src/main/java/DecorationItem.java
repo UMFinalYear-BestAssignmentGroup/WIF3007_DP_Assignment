@@ -10,4 +10,7 @@
  */
 public interface DecorationItem {
     void selectDecoration();
+    void resize(double scale);
+    void resize(double scale, DecorationItem di);
+    void location(double slider, int length, String orientation, DecorationItem di);
 }

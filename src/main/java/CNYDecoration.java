@@ -33,6 +33,33 @@ public class CNYDecoration extends ImageView implements DecorationItem {
         size = getFitHeight();
 //        return this;
     }
-
     
+    @Override
+    public void resize(double scale){
+        
+    }
+    
+    /**
+     *
+     * @param scale
+     * @param di
+     */
+    @Override
+    public void resize(double scale, DecorationItem di){
+        setFitHeight(scale);
+        System.out.println("Inside resizwe method deco 3");
+    }
+
+    @Override
+    public void location(double slider, int length, String orientation, DecorationItem di){
+           System.out.println("Inside location 2");
+//        setFitHeight(scale);
+        if ("horizontal".equals(orientation)) {
+            System.out.println("X:" + (slider * length) / 100);
+            setX((slider * length) / 100);
+        } else if ("vertical".equals(orientation)) {
+            setY((slider * length) / 100);
+            System.out.println("Y:" + (slider * length) / 100);
+        }
+    }
 }

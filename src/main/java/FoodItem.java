@@ -77,5 +77,6 @@ public class FoodItem extends ImageView implements FoodObserver {
     @Override
     public void update(double scale) {
         setFitHeight(scale);
+        System.out.println("Inside resizwe method food");
     }
 }
