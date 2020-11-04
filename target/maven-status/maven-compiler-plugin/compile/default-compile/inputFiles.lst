@@ -1,1 +1,14 @@
+<<<<<<< Updated upstream
 D:\Lectures\Semester 7\WIF3007 DESIGN PATTERNS\Assignment\Assignment 1\DP-Assignment\src\main\java\main.java
+=======
+D:\Lectures\Semester 7\WIF3007 DESIGN PATTERNS\Assignment\Assignment 1\DP-Assignment\src\main\java\DecorationItem.java
+D:\Lectures\Semester 7\WIF3007 DESIGN PATTERNS\Assignment\Assignment 1\DP-Assignment\src\main\java\FoodItem.java
+D:\Lectures\Semester 7\WIF3007 DESIGN PATTERNS\Assignment\Assignment 1\DP-Assignment\src\main\java\Decorator.java
+D:\Lectures\Semester 7\WIF3007 DESIGN PATTERNS\Assignment\Assignment 1\DP-Assignment\src\main\java\Dumplings.java
+D:\Lectures\Semester 7\WIF3007 DESIGN PATTERNS\Assignment\Assignment 1\DP-Assignment\src\main\java\FoodObserver.java
+D:\Lectures\Semester 7\WIF3007 DESIGN PATTERNS\Assignment\Assignment 1\DP-Assignment\src\main\java\YeeSang.java
+D:\Lectures\Semester 7\WIF3007 DESIGN PATTERNS\Assignment\Assignment 1\DP-Assignment\src\main\java\CNYDecoration.java
+D:\Lectures\Semester 7\WIF3007 DESIGN PATTERNS\Assignment\Assignment 1\DP-Assignment\src\main\java\com\melvinedward\javafx_test\SystemInfo.java
+D:\Lectures\Semester 7\WIF3007 DESIGN PATTERNS\Assignment\Assignment 1\DP-Assignment\src\main\java\JavafxSample.java
+D:\Lectures\Semester 7\WIF3007 DESIGN PATTERNS\Assignment\Assignment 1\DP-Assignment\src\main\java\com\melvinedward\javafx_test\App.java
+>>>>>>> Stashed changes

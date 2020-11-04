@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:src/main/java/main.java
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -5,6 +6,8 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+=======
+>>>>>>> Stashed changes:src/main/java/DecorationItem.java
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,8 +16,9 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Melvin
+ * @author user
  */
+<<<<<<< Updated upstream:src/main/java/main.java
 public class main {
 
     /**
@@ -43,4 +47,8 @@ public class main {
         mainFrame.setVisible(true);
     }
     
+=======
+public interface DecorationItem {
+    void selectDecoration();
+>>>>>>> Stashed changes:src/main/java/DecorationItem.java
 }
