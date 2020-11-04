@@ -55,13 +55,11 @@ public class FoodItem extends ImageView implements FoodObserver {
     @Override
     public void update(double slider, int length, String orientation) {
         if ("horizontal".equals(orientation)) {
-//            System.out.println("X:" + (slider * length) / 100);
             setX((slider * length) / 100);
             x_slider = slider;
         } else if ("vertical".equals(orientation)) {
             setY((slider * length) / 100);
             y_slider = slider;
-//            System.out.println("Y:" + (slider * length) / 100);
         }
     }
 

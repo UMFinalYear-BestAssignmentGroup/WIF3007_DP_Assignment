@@ -23,9 +23,9 @@ import javafx.scene.text.Text;
  */
 public class FoodBox extends VBox {
 
-    private FoodItem imageView;
-    private final int design_width;
-    private final int design_height;
+    FoodItem imageView;
+    final int design_width;
+    final int design_height;
 
     FoodItem yeesang;
     FoodItem dumplings;
@@ -185,6 +185,7 @@ public class FoodBox extends VBox {
         getChildren().addAll(food_radio, food_cny_toggle, food_raya_toggle, visible_group_toggle, txt_x_axis, x_slider, txt_y_axis, y_slider, txt_scale, size_slider);
     }
 
+    //set value for imageView and set sliders to imageView settings (CNY)
     public void cnyFactory() {
         List<Object> sliders;
         if (food_cny_toggle_btn.getSelectedToggle() != null) {
@@ -228,6 +229,7 @@ public class FoodBox extends VBox {
         }
     }
 
+    //set value for imageView and set sliders to imageView settings (Raya)
     public void rayaFactory() {
         List<Object> sliders;
         if (food_raya_toggle_btn.getSelectedToggle() != null) {
