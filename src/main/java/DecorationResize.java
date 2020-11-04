@@ -8,6 +8,19 @@
  *
  * @author user
  */
-public class DecorationResize {
+public class DecorationResize extends Decorator {
     
+    public DecorationResize(DecorationItem decorationItem) {
+      super(decorationItem);		
+   }
+    
+    @Override
+    public void selectDecoration(){
+        decorationItem.selectDecoration();
+//        resize(decorationItem);
+    }
+    
+//    private void resize(double scale){
+//        setFitHeight(scale);
+//    }
 }

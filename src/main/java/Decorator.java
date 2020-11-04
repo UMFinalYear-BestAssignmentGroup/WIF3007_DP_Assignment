@@ -6,7 +6,7 @@
 
 /**
  *
- * @author user
+ * @author SyafiqRazak
  */
 public abstract class Decorator implements DecorationItem{
     protected DecorationItem decorationItem;
