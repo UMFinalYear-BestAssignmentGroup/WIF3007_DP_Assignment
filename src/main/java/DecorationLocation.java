@@ -27,12 +27,10 @@ public class DecorationLocation extends Decorator {
     @Override
     public void location(double slider, int length, String orientation, DecorationItem di){
         if ("horizontal".equals(orientation)) {
-//            System.out.println("X:" + (slider * length) / 100);
-//            setX((slider * length) / 100);
+//            System.out.println("X:" + (slider
             decorationItem.location(slider, length, orientation, di);
         } else if ("vertical".equals(orientation)) {
 //            setY((slider * length) / 100);
-//            System.out.println("Y:" + (slider * length) / 100);
             decorationItem.location(slider, length, orientation, di);
         }
         System.out.println("Inside location 1");
