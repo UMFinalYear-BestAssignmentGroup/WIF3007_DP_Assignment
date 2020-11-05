@@ -11,17 +11,17 @@ import javafx.scene.layout.Pane;
  *
  * @author Melvin
  */
-public class FoodRayaFactory implements FoodFactory{
+public class FoodCNYFactory implements FoodFactory{
 
     @Override
     public FoodItem addFood(String food, Pane designPane) {
         FoodItem tmp = new FoodItem();
         switch(food) {
-            case "ketupat":
-                tmp = FoodList.getInstance().addFoodItem(new Ketupat().setItem());
+            case "dumplings":
+                tmp = FoodList.getInstance().addFoodItem(new Dumplings().setItem());
                 break;
-            case "rendang":
-                tmp = FoodList.getInstance().addFoodItem(new Rendang().setItem());
+            case "yeesang":
+                tmp = FoodList.getInstance().addFoodItem(new YeeSang().setItem());
                 break;
             default: System.out.println("Invalid food item"); break;
         }

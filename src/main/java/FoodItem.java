@@ -1,6 +1,7 @@
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javafx.scene.image.Image;
@@ -15,18 +16,24 @@ import javafx.scene.image.ImageView;
  *
  * @author Melvin
  */
-public class FoodItem extends ImageView implements FoodObserver {
+public class FoodItem extends ImageView {
+    public String id;
     public String name;
     public String location;
     public double size;
     public double x_slider;
     public double y_slider;
-    public boolean visible = false;
+    public boolean visible = true;
+    private ArrayList<FoodObserver> observers = new ArrayList<>();
 
     public FoodItem() {
         setPreserveRatio(true);
         setFitHeight(200);
-        setVisible(false);
+        setVisible(true);
+        
+        observers.add(new YPositionObserver(this));
+        observers.add(new XPositionObserver(this));
+        observers.add(new SizeObserver(this));
     }
 
     public FoodItem setItem() {
@@ -44,6 +51,7 @@ public class FoodItem extends ImageView implements FoodObserver {
     }
     
     public void setVisibility(boolean v) {
+        System.out.println(name + " visibility set to " + v);
         setVisible(v);
         visible = v;
     }
@@ -52,20 +60,32 @@ public class FoodItem extends ImageView implements FoodObserver {
         return visible;
     }
     
-    @Override
-    public void update(double slider, int length, String orientation) {
-        if ("horizontal".equals(orientation)) {
-            setX((slider * length) / 100);
-            x_slider = slider;
-        } else if ("vertical".equals(orientation)) {
-            setY((slider * length) / 100);
-            y_slider = slider;
-        }
+    public void setId(int i) {
+        id = name + "_" + i;
     }
-
-    @Override
-    public void update(double scale) {
+    
+    public void setXSlider(double slider) {
+        x_slider = slider;
+        notifyAllObservers();
+    }
+    
+    public void setYSlider(double slider) {
+        y_slider = slider;
+        notifyAllObservers();
+    }
+    
+    public void setSize(double scale) {
         size = scale;
-        setFitHeight(scale);
+        notifyAllObservers();
     }
+    
+    public String getNameId() {
+        return id;
+    }
+    
+    public void notifyAllObservers(){
+      for (FoodObserver observer : observers) {
+         observer.update();
+      }
+   } 
 }

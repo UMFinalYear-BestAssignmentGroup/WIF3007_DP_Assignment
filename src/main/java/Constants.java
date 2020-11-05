@@ -8,10 +8,7 @@
  *
  * @author Melvin
  */
-public abstract class FoodObserver{
-    FoodItem fooditem;
-    
-    public FoodObserver() {};
-    public abstract void update();
+public class Constants {
+    public static final int WIDTH = 850;
+    public static final int HEIGHT = 650;
 }
-

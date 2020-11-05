@@ -1,3 +1,6 @@
+
+import javafx.scene.layout.Pane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,10 +11,7 @@
  *
  * @author Melvin
  */
-public abstract class FoodObserver{
-    FoodItem fooditem;
+public interface FoodFactory {
+    public FoodItem addFood(String food, Pane designPane);
     
-    public FoodObserver() {};
-    public abstract void update();
 }
-

@@ -24,9 +24,6 @@ import javafx.stage.Stage;
  */
 public class MainActivity extends Application {
 
-    private final int design_width = 850;
-    private final int design_height = 600;
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         /* 
@@ -37,11 +34,11 @@ public class MainActivity extends Application {
         VBox inputPane = new VBox();
         Pane designPane = new Pane();
         designPane.setStyle("-fx-background-color: red;");
-        designPane.setPrefSize(design_width, design_height);
+        designPane.setPrefSize(Constants.WIDTH, Constants.HEIGHT);
         bPane.setRight(designPane);
 
         inputPane.setStyle("-fx-background-color: grey;");
-        inputPane.setPrefSize(200, 600);
+        inputPane.setPrefSize(200, 650);
         bPane.setLeft(inputPane);
 
         //settings for background
@@ -91,7 +88,7 @@ public class MainActivity extends Application {
         animation_titledpane.setLayoutY(1);
 
         //settings for food
-        FoodBox food_vbox = new FoodBox(designPane, design_width, design_height);
+        FoodBox food_vbox = new FoodBox(designPane);
         TitledPane food_titledpane = new TitledPane("Food", food_vbox);
         food_titledpane.setLayoutX(1);
         food_titledpane.setLayoutY(1);
@@ -109,7 +106,7 @@ public class MainActivity extends Application {
         //creating a Group object 
         Group group = new Group(bPane);
         //Creating a Scene by passing the group object, height and width   
-        Scene scene = new Scene(group, 1050, 600);
+        Scene scene = new Scene(group, 1050, 650);
         primaryStage.setResizable(false);
         //setting color to the scene 
         scene.setFill(Color.GREY);
