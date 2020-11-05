@@ -106,21 +106,18 @@ public class FoodBox extends VBox {
         
         x_slider.valueProperty().addListener((ObservableValue<? extends Number> ov, Number t, Number t1) -> {
             if (imageView != null) {
-//                imageView.update(x_slider.getValue(), design_width - 150, "horizontal");
                 imageView.setXSlider(x_slider.getValue());
             }
         });
         
         y_slider.valueProperty().addListener((ObservableValue<? extends Number> ov, Number t, Number t1) -> {
             if (imageView != null) {
-//                imageView.update(y_slider.getValue(), design_height - 100, "vertical");
                 imageView.setYSlider(y_slider.getValue());
             }
         });
         
         size_slider.valueProperty().addListener((ObservableValue<? extends Number> ov, Number t, Number t1) -> {
             if (imageView != null) {
-//                imageView.update(size_slider.getValue());
                 imageView.setSize(size_slider.getValue());
             }
         });
@@ -218,34 +215,8 @@ public class FoodBox extends VBox {
             
             if ("raya".equals(food_radio_btn.getSelectedToggle().getUserData().toString())) {
                 new FoodRayaFactory().addFood(food_choice.getValue().toString(), designPane);
-                
-//                sliders = imageView.getSlider();
-//                x_slider.setValue((double) sliders.get(0));
-//                y_slider.setValue((double) sliders.get(1));
-//                size_slider.setValue((double) sliders.get(2));
-//                
-//                if (imageView.getVisibility()) {
-//                    btn_visible_true.setSelected(true);
-//                    btn_visible_false.setSelected(false);
-//                } else {
-//                    btn_visible_true.setSelected(false);
-//                    btn_visible_false.setSelected(true);
-//                }
             } else if ("cny".equals(food_radio_btn.getSelectedToggle().getUserData().toString())) {
                 new FoodCNYFactory().addFood(food_choice.getValue().toString(), designPane);
-                
-//                sliders = imageView.getSlider();
-//                x_slider.setValue((double) sliders.get(0));
-//                y_slider.setValue((double) sliders.get(1));
-//                size_slider.setValue((double) sliders.get(2));
-//                
-//                if (imageView.getVisibility()) {
-//                    btn_visible_true.setSelected(true);
-//                    btn_visible_false.setSelected(false);
-//                } else {
-//                    btn_visible_true.setSelected(false);
-//                    btn_visible_false.setSelected(true);
-//                }
             }
             
             updateListView();
