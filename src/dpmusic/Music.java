@@ -5,8 +5,9 @@
  */
 package dpmusic;
 
-import javax.sound.sampled.*;
 import java.io.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 /**
  *
  * @author User
@@ -14,12 +15,10 @@ import java.io.*;
 public class Music {
 
     String songType;
-//    int volume;
+    double volume;
     
-    AudioFormat audioFormat;
-    AudioInputStream audioInputStream;
-    SourceDataLine sourceDataLine;
-    boolean stopPlayback =false;
+    MediaPlayer player = null;
+    Media me;
 
     public String getSong() {
         return songType;
@@ -29,71 +28,32 @@ public class Music {
         this.songType = song;
     }
     
-    public void setStopPlayback(boolean stopPlayBack) {
-        this.stopPlayback = stopPlayBack;
-    }
-    
-    public boolean getStopPlayback(){
-        return stopPlayback;
+    void initMusic() {
+        String path = new File(songType).getAbsolutePath();
+        me = new Media(new File(path).toURI().toString());
+        player = new MediaPlayer(me);
     }
     
     void play() {
-        try {
-            File soundFile = new File(songType);
-            audioInputStream = AudioSystem.getAudioInputStream(soundFile);
-            audioFormat = audioInputStream.getFormat();
-            //System.out.println(audioFormat);
-
-            DataLine.Info dataLineInfo = new DataLine.Info(SourceDataLine.class, audioFormat);
-            sourceDataLine = (SourceDataLine) AudioSystem.getLine(dataLineInfo);
-
-            //Create a thread to play back the data and start it running. It will run until the end of file, or Stop button is clicked.
-            new PlayThread().start();
-        } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
-            System.out.println("File error");
-            System.exit(0);
-        }
+        player.play();
     }
     
-    class PlayThread extends Thread {
-
-        byte tempBuffer[] = new byte[10000];
-
-        @Override
-        public void run() {
-            try {
-                sourceDataLine.open(audioFormat);
-                sourceDataLine.start();
-
-                int cnt;
-                //Keep looping until the input read method returns -1 for empty stream or the user clicks the Stop button causing stopPlayback to switch from false to true.
-                while ((cnt = audioInputStream.read(tempBuffer, 0, tempBuffer.length)) != -1 && stopPlayback == false) {
-                    if (cnt > 0) {
-                        //Write data to the internal buffer of the data line where it will be delivered to the speaker.
-                        sourceDataLine.write(
-                                tempBuffer, 0, cnt);
-                    }
-                }
-                //Block and wait for internal buffer of the data line to empty.
-                sourceDataLine.drain();
-                sourceDataLine.close();
-                
-                //prepare to playback another file
-                stopPlayback = false;
-            } catch (IOException | LineUnavailableException e) {
-                System.out.println("Error");
-                System.exit(0);
-            }
-        }
+    void pause() {
+        player.pause();
     }
     
-//    public int getVolume() {
-//        return volume;
-//    }
-//    
-//    public void setVolume(int volume) {
-//        this.volume = volume;
-//    }
+    void stop() {
+        player.stop();
+    }
+    
+    public double getVolume() {
+        return volume;
+    }
+    
+    public void setVolume(double volume) {
+        this.volume = volume;
+        player.setVolume(volume);
+    }
 
 }
 

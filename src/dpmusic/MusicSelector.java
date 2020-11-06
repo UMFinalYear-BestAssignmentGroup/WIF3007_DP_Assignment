@@ -31,6 +31,7 @@ public class MusicSelector extends VBox {
     Music music;
     
     Button play_btn;
+    Button pause_btn;
     Button stop_btn;
     HBox btn_box;
     
@@ -46,11 +47,14 @@ public class MusicSelector extends VBox {
         
         //play and stop button
         play_btn = new Button("Play");
-        stop_btn = new Button("Pause");
+        pause_btn = new Button("Pause");
+        stop_btn = new Button("Stop");
+        pause_btn.setVisible(false);
         stop_btn.setVisible(false);
+        pause_btn.setManaged(false);
         stop_btn.setManaged(false);
         btn_box = new HBox(2);
-        btn_box.getChildren().addAll(play_btn, stop_btn);
+        btn_box.getChildren().addAll(play_btn, pause_btn, stop_btn);
         
         //buttons to choose song
         cny_btn = new RadioButton("CNY");
@@ -68,7 +72,7 @@ public class MusicSelector extends VBox {
         Text songLabel = new Text("Choose festival: ");
         
         //set slider
-        volume_slider = new Slider(0, 10, 10);
+        volume_slider = new Slider(0, 1, 1);
         
         //set radio button action
         song_radio.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> ov, Toggle t, Toggle t1) -> {
@@ -78,10 +82,12 @@ public class MusicSelector extends VBox {
                     case "cny":
                         System.out.println("cny music");
                         music = musicFactory.prepareSong("cny");
+                        music.initMusic();
                         break;
                     case "raya":
                         System.out.println("raya music");
                         music = musicFactory.prepareSong("raya");
+                        music.initMusic();
                         break;
                 }
             }
@@ -91,25 +97,42 @@ public class MusicSelector extends VBox {
         play_btn.setOnAction((t) -> {
             play_btn.setVisible(false);
             play_btn.setManaged(false);
+            pause_btn.setVisible(true);
+            pause_btn.setManaged(true);
             stop_btn.setVisible(true);
             stop_btn.setManaged(true);
-            
-            //play the song
             music.play();
+            song_radioGroup.setDisable(true);
+        });
+        
+        //set pause button action
+        pause_btn.setOnAction((t) -> {
+            play_btn.setVisible(true);
+            play_btn.setManaged(true);
+            pause_btn.setVisible(false);
+            pause_btn.setManaged(false);
+            stop_btn.setVisible(true);
+            stop_btn.setManaged(true);
+            music.pause();
+            song_radioGroup.setDisable(false);
         });
         
         //set stop button action
         stop_btn.setOnAction((t) -> {
             play_btn.setVisible(true);
             play_btn.setManaged(true);
+            pause_btn.setVisible(false);
+            pause_btn.setManaged(false);
             stop_btn.setVisible(false);
             stop_btn.setManaged(false);
-            music.setStopPlayback(true);
+            music.stop();
+            song_radioGroup.setDisable(false);
         });
         
         //set slider value
         volume_slider.valueProperty().addListener((ObservableValue<? extends Number> ov, Number t, Number t1) -> {
             System.out.println(volume_slider.getValue());
+            music.setVolume(volume_slider.getValue());
         });
         
         setPadding(new Insets(10));
