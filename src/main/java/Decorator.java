@@ -31,6 +31,11 @@ public abstract class Decorator extends ImageView implements DecorationItem{
     }
     
     @Override
+    public void rotate(double degree, DecorationItem di){
+        setRotate(degree);
+    }
+    
+    @Override
     public void location(double slider, int length, String orientation, DecorationItem di){
         
     }

@@ -9,17 +9,19 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.transform.Rotate; 
 import javax.swing.ImageIcon;
 /**
  *
  * @author SyafiqRazak
  */
-public class CNYDecoration extends ImageView implements DecorationItem {
-    public String name = "Tanglong";
-    public String location = "img/TanglongDeco1.png";
+public abstract class DecorationFactory extends ImageView implements DecorationItem {
+
     public double size;
+    String name;
+    String location;
     
-    public CNYDecoration(){
+    public DecorationFactory(){
         setPreserveRatio(true);
         setFitHeight(200);
     }
@@ -31,6 +33,7 @@ public class CNYDecoration extends ImageView implements DecorationItem {
             ex.getStackTrace();
         }
         size = getFitHeight();
+//        setRotate(90);
 //        return this;
     }
     
@@ -38,21 +41,20 @@ public class CNYDecoration extends ImageView implements DecorationItem {
     public void resize(double scale){
         
     }
+
     
-    /**
-     *
-     * @param scale
-     * @param di
-     */
     @Override
     public void resize(double scale, DecorationItem di){
         setFitHeight(scale);
-        System.out.println("Inside resizwe method deco 3");
+    }
+
+    @Override
+    public void rotate(double degree, DecorationItem di){
+        setRotate(degree);
     }
 
     @Override
     public void location(double slider, int length, String orientation, DecorationItem di){
-           System.out.println("Inside location 2");
 //        setFitHeight(scale);
         if ("horizontal".equals(orientation)) {
             System.out.println("X:" + (slider * length) / 100);

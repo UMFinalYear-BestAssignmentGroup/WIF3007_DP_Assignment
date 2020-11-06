@@ -32,13 +32,12 @@ public class DecorationResize extends Decorator {
     @Override
     public void resize(double scale){
         System.out.println("Inside resizwe method deco");
-//        CNYDecoration cny= new CNYDecoration();
         setFitHeight(scale);
     }
         @Override
     public void resize(double scale, DecorationItem di){
         System.out.println("Inside resizwe method deco 2");
-        setFitHeight(scale);
         decorationItem.resize(scale, di);
+//        di.setFitHeight(scale);
     }
 }
