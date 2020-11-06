@@ -16,7 +16,7 @@ public class FoodRayaFactory implements FoodFactory{
     @Override
     public FoodItem addFood(String food, Pane designPane) {
         FoodItem tmp = new FoodItem();
-        switch(food) {
+        switch(food.toLowerCase()) {
             case "ketupat":
                 tmp = FoodList.getInstance().addFoodItem(new Ketupat().setItem());
                 break;

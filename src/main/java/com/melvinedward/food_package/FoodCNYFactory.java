@@ -16,7 +16,7 @@ public class FoodCNYFactory implements FoodFactory{
     @Override
     public FoodItem addFood(String food, Pane designPane) {
         FoodItem tmp = new FoodItem();
-        switch(food) {
+        switch(food.toLowerCase()) {
             case "dumplings":
                 tmp = FoodList.getInstance().addFoodItem(new Dumplings().setItem());
                 break;

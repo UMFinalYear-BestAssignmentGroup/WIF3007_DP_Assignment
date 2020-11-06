@@ -31,8 +31,8 @@ import javafx.stage.Stage;
  */
 public class FoodBox extends VBox {
     
-    String raya_food_array[] = {"rendang", "ketupat"};
-    String cny_food_array[] = {"yeesang", "dumplings"};
+    String raya_food_array[] = {"Rendang", "Ketupat"};
+    String cny_food_array[] = {"Yeesang", "Dumplings"};
     ComboBox food_choice;
     
     Pane designPane;

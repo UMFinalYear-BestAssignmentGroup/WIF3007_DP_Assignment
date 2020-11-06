@@ -1,4 +1,4 @@
-package com.melvinedward.javafx_test;
+package com.melvinedward.food_package;
 
 public class SystemInfo {
 
