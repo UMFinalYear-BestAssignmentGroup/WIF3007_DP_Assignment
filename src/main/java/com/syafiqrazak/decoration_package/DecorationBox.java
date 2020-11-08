@@ -41,60 +41,34 @@ public class DecorationBox extends VBox{
         VBox decorations_vbox = new VBox(10);
         decorations_vbox.setPadding(new Insets(10));
         
-        RadioButton eidDeco1 = new RadioButton("eidDeco1");
-        RadioButton eidDeco2 = new RadioButton("eidDeco2");
-        RadioButton cnyDeco1 = new RadioButton("cnyDeco1");        
-        RadioButton cnyDeco2 = new RadioButton("cnyDeco2");
+        RadioButton eidDeco1 = new RadioButton("Eid Deco 1");
+        RadioButton eidDeco2 = new RadioButton("Eid Deco 2");
+        RadioButton cnyDeco1 = new RadioButton("CNY Deco 1");        
+        RadioButton cnyDeco2 = new RadioButton("CNY Deco 2");
         ToggleGroup FestivalDeco = new ToggleGroup();
-        eidDeco1.setSelected(true);
+        cnyDeco1.setSelected(true);
         FestivalDeco.getToggles().addAll(eidDeco1, eidDeco2, cnyDeco1, cnyDeco2);
         
         
-//        TitledPane decorations_titledpane = new TitledPane("Decorations", decorations_vbox);
-//        decorations_titledpane.setLayoutX(1);
-//        decorations_titledpane.setLayoutY(1);
-        
-//        CNYDecoration cny = new CNYDecoration();
-//        cny.selectDecoration();
-
-
-        
-//        festival.selectDecoration();
-//        designPane.getChildren().addAll(festival);
-//        DecorationFactory festival = null;
-        
         FestivalDeco.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> ov,  Toggle old_toggle, Toggle new_toggle) -> {
             RadioButton selectedRadioButton = (RadioButton) FestivalDeco.getSelectedToggle();
-//            festival = null;
-              if (selectedRadioButton.getText() == "eidDeco1") {
                 designPane.getChildren().remove(festival);
                 festival = null;
+              if (selectedRadioButton.getText() == "Eid Deco 1") {
                 festival = new EidDecoration1();
-                festival.selectDecoration();
-                designPane.getChildren().addAll(festival);
                   System.out.println(selectedRadioButton.getText());
-              } else if (selectedRadioButton.getText() == "eidDeco2") {
-                designPane.getChildren().remove(festival);
-                festival = null;
+              } else if (selectedRadioButton.getText() == "Eid Deco 2") {
                 festival = new EidDecoration2();
-                festival.selectDecoration();
-                designPane.getChildren().addAll(festival);
                   System.out.println(selectedRadioButton.getText());
-              } else if (selectedRadioButton.getText() == "cnyDeco1") {
-                designPane.getChildren().remove(festival);
-                festival = null;
+              } else if (selectedRadioButton.getText() == "CNY Deco 1") {
                 festival = new CNYDecoration1();
-                festival.selectDecoration();
-                designPane.getChildren().addAll(festival);
                   System.out.println(selectedRadioButton.getText());
-              } else if (selectedRadioButton.getText() == "cnyDeco2") {
-                designPane.getChildren().remove(festival);
-                festival = null;
+              } else if (selectedRadioButton.getText() == "CNY Deco 2") {
                 festival = new CNYDecoration2();
-                festival.selectDecoration();
-                designPane.getChildren().addAll(festival);
                   System.out.println(selectedRadioButton.getText());
               }
+                festival.selectDecoration();
+                designPane.getChildren().addAll(festival);
               DecorationItem di = new DecorationLocation(festival);
               
         });
@@ -132,8 +106,6 @@ public class DecorationBox extends VBox{
             di.rotate(rotation_slider_deco.getValue(), di);
         });
         
-//                    RadioButton selectedRadioButton = (RadioButton) FestivalDeco.getSelectedToggle();
-//                    System.out.println(selectedRadioButton.getText());
         getChildren().addAll(
                 txt_select_deco,
                 cnyDeco1,
@@ -151,34 +123,5 @@ public class DecorationBox extends VBox{
     }
     
     
-//    public void changed(ObservableValue<? extends Boolean> obs, Boolean wasPreviouslySelected, Boolean isNowSelected) {
-//        RadioButton selectedRadioButton = (RadioButton) FestivalDeco.getSelectedToggle();
-//            festival = null;
-////            CNYDecoration1 aaa = null;
-//              if (selectedRadioButton.getText() == "eidDeco1") {
-////                designPane.getChildren().remove(festival);
-//                this.festival = new EidDecoration1();
-//                festival.selectDecoration();
-//                designPane.getChildren().addAll(festival);
-//                  festival = new EidDecoration1();
-//                  System.out.println(selectedRadioButton.getText());
-//              } else if (selectedRadioButton.getText() == "eidDeco2") {
-////                festival = new EidDecoration2();
-////                festival.selectDecoration();
-////                designPane.getChildren().addAll(festival);
-////                festival = new EidDecoration2();
-//                  System.out.println(selectedRadioButton.getText());
-//              } else if (selectedRadioButton.getText() == "cnyDeco1") {
-////                festival = new CNYDecoration2();
-////                festival.selectDecoration();
-////                designPane.getChildren().addAll(festival);
-//                  System.out.println(selectedRadioButton.getText());
-//              } else if (selectedRadioButton.getText() == "cnyDeco2") {
-////                festival = new CNYDecoration2();
-////                festival.selectDecoration();
-////                designPane.getChildren().addAll(festival);
-//                  System.out.println(selectedRadioButton.getText());
-//              }
-////              return festival;
-//    }
+    
 }
