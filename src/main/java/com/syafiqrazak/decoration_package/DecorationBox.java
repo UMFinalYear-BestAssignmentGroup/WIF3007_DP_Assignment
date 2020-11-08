@@ -34,7 +34,8 @@ public class DecorationBox extends VBox{
     
     final int design_width = 850;
     final int design_height = 650;
-    DecorationFactory festival = new CNYDecoration1();
+    DecorationFactory festival = new EidDecoration1();
+//    DecorationFactory festival = null;
     
     public DecorationBox(Pane designPane){
         VBox decorations_vbox = new VBox(10);
@@ -58,38 +59,43 @@ public class DecorationBox extends VBox{
 
 
         
-        festival.selectDecoration();
-        designPane.getChildren().addAll(festival);
+//        festival.selectDecoration();
+//        designPane.getChildren().addAll(festival);
 //        DecorationFactory festival = null;
         
         FestivalDeco.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> ov,  Toggle old_toggle, Toggle new_toggle) -> {
             RadioButton selectedRadioButton = (RadioButton) FestivalDeco.getSelectedToggle();
-            festival = null;
-            designPane.getChildren().remove(festival);
-//            CNYDecoration1 aaa = null;
+//            festival = null;
               if (selectedRadioButton.getText() == "eidDeco1") {
-                this.festival = new EidDecoration1();
+                designPane.getChildren().remove(festival);
+                festival = null;
+                festival = new EidDecoration1();
                 festival.selectDecoration();
                 designPane.getChildren().addAll(festival);
-                  festival = new EidDecoration1();
                   System.out.println(selectedRadioButton.getText());
               } else if (selectedRadioButton.getText() == "eidDeco2") {
-//                festival = new EidDecoration2();
-//                festival.selectDecoration();
-//                designPane.getChildren().addAll(festival);
-//                festival = new EidDecoration2();
+                designPane.getChildren().remove(festival);
+                festival = null;
+                festival = new EidDecoration2();
+                festival.selectDecoration();
+                designPane.getChildren().addAll(festival);
                   System.out.println(selectedRadioButton.getText());
               } else if (selectedRadioButton.getText() == "cnyDeco1") {
-//                festival = new CNYDecoration2();
-//                festival.selectDecoration();
-//                designPane.getChildren().addAll(festival);
+                designPane.getChildren().remove(festival);
+                festival = null;
+                festival = new CNYDecoration1();
+                festival.selectDecoration();
+                designPane.getChildren().addAll(festival);
                   System.out.println(selectedRadioButton.getText());
               } else if (selectedRadioButton.getText() == "cnyDeco2") {
-//                festival = new CNYDecoration2();
-//                festival.selectDecoration();
-//                designPane.getChildren().addAll(festival);
+                designPane.getChildren().remove(festival);
+                festival = null;
+                festival = new CNYDecoration2();
+                festival.selectDecoration();
+                designPane.getChildren().addAll(festival);
                   System.out.println(selectedRadioButton.getText());
               }
+              DecorationItem di = new DecorationLocation(festival);
               
         });
         
@@ -130,10 +136,10 @@ public class DecorationBox extends VBox{
 //                    System.out.println(selectedRadioButton.getText());
         getChildren().addAll(
                 txt_select_deco,
-                eidDeco1,
-                eidDeco2,
                 cnyDeco1,
                 cnyDeco2,
+                eidDeco1,
+                eidDeco2,
                 txt_x_axis_deco,
                 x_slider_deco,
                 txt_y_axis_deco,

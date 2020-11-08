@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.transform.Rotate; 
 import javax.swing.ImageIcon;
+//import javafx.scene.layout.Pane;
 /**
  *
  * @author SyafiqRazak
@@ -38,6 +39,15 @@ public abstract class DecorationFactory extends ImageView implements DecorationI
 //        setRotate(90);
 //        return this;
     }
+//    @Override
+//    public void selectDecoration(Pane designPane) {
+//        try {
+//            setImage(new Image(new FileInputStream(location)));
+//        } catch (FileNotFoundException ex) {
+//            ex.getStackTrace();
+//        }
+//        size = getFitHeight();
+//    }
     
     @Override
     public void resize(double scale){
