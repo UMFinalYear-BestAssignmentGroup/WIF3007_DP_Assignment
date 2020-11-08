@@ -120,36 +120,36 @@ public class JavafxSample extends Application {
         designPane.getChildren().addAll(festival);
 //        DecorationFactory festival = null;
         
-        FestivalDeco.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> ov,  Toggle old_toggle, Toggle new_toggle) -> {
-            RadioButton selectedRadioButton = (RadioButton) FestivalDeco.getSelectedToggle();
-            festival = null;
-//            CNYDecoration1 aaa = null;
-              if (selectedRadioButton.getText() == "eidDeco1") {
-//                designPane.getChildren().remove(festival);
-                this.festival = new EidDecoration1();
-                festival.selectDecoration();
-                designPane.getChildren().addAll(festival);
-                  festival = new EidDecoration1();
-                  System.out.println(selectedRadioButton.getText());
-              } else if (selectedRadioButton.getText() == "eidDeco2") {
-//                festival = new EidDecoration2();
+//        FestivalDeco.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> ov,  Toggle old_toggle, Toggle new_toggle) -> {
+//            RadioButton selectedRadioButton = (RadioButton) FestivalDeco.getSelectedToggle();
+//            festival = null;
+////            CNYDecoration1 aaa = null;
+//              if (selectedRadioButton.getText() == "eidDeco1") {
+////                designPane.getChildren().remove(festival);
+//                this.festival = new EidDecoration1();
 //                festival.selectDecoration();
 //                designPane.getChildren().addAll(festival);
-//                festival = new EidDecoration2();
-                  System.out.println(selectedRadioButton.getText());
-              } else if (selectedRadioButton.getText() == "cnyDeco1") {
-//                festival = new CNYDecoration2();
-//                festival.selectDecoration();
-//                designPane.getChildren().addAll(festival);
-                  System.out.println(selectedRadioButton.getText());
-              } else if (selectedRadioButton.getText() == "cnyDeco2") {
-//                festival = new CNYDecoration2();
-//                festival.selectDecoration();
-//                designPane.getChildren().addAll(festival);
-                  System.out.println(selectedRadioButton.getText());
-              }
-              
-        });
+//                  festival = new EidDecoration1();
+//                  System.out.println(selectedRadioButton.getText());
+//              } else if (selectedRadioButton.getText() == "eidDeco2") {
+////                festival = new EidDecoration2();
+////                festival.selectDecoration();
+////                designPane.getChildren().addAll(festival);
+////                festival = new EidDecoration2();
+//                  System.out.println(selectedRadioButton.getText());
+//              } else if (selectedRadioButton.getText() == "cnyDeco1") {
+////                festival = new CNYDecoration2();
+////                festival.selectDecoration();
+////                designPane.getChildren().addAll(festival);
+//                  System.out.println(selectedRadioButton.getText());
+//              } else if (selectedRadioButton.getText() == "cnyDeco2") {
+////                festival = new CNYDecoration2();
+////                festival.selectDecoration();
+////                designPane.getChildren().addAll(festival);
+//                  System.out.println(selectedRadioButton.getText());
+//              }
+//              
+//        });
         
 //        designPane.getChildren().addAll(festival);
 //        DecorationItem di = new DecorationResize(cny);
