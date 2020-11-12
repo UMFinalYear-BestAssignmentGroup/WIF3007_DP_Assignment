@@ -34,6 +34,11 @@ public class Music {
         player = new MediaPlayer(me);
     }
     
+    void initAddedMusic(String songPath) {
+        me = new Media(new File(songPath).toURI().toString());
+        player = new MediaPlayer(me);
+    }
+    
     void play() {
         player.play();
     }
@@ -46,10 +51,12 @@ public class Music {
         player.stop();
     }
     
+    //to get the song volume
     public double getVolume() {
         return volume;
     }
     
+    //to set the song volume
     public void setVolume(double volume) {
         this.volume = volume;
         player.setVolume(volume);
