@@ -1,4 +1,5 @@
 
+import background.BackgroundBox;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
@@ -42,16 +43,7 @@ public class MainActivity extends Application {
         bPane.setLeft(inputPane);
 
         //settings for background
-        RadioButton button1 = new RadioButton("Apache Tika");
-        RadioButton button2 = new RadioButton("JavaFX");
-        RadioButton button3 = new RadioButton("Java ML");
-        ToggleGroup group1 = new ToggleGroup();
-        group1.getToggles().addAll(button1, button2, button3);
-
-        VBox background_vbox = new VBox(10);
-        background_vbox.setPadding(new Insets(10));
-        background_vbox.getChildren().addAll(button1, button2, button3);
-
+        VBox background_vbox = new BackgroundBox(designPane);
         TitledPane background_titledpane = new TitledPane("Background", background_vbox);
         background_titledpane.setLayoutX(1);
         background_titledpane.setLayoutY(1);
