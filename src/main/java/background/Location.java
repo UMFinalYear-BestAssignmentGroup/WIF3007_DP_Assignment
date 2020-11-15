@@ -3,6 +3,8 @@
  */
 package background;
 
+import javafx.scene.layout.Pane;
+
 /**
  *
  * @author User
@@ -14,8 +16,14 @@ public abstract class Location {
     public static final String OUTDOOR = "Outdoor";
     /*Image URL*/
     protected String location = "Unknow URL";
+    Weather weather;
     /*Return Image URL*/
     public String getImageLocation(){
         return location;
     }
+    
+//    public void setWeather(Pane designPane, Weather wd){
+//        weather = wd;
+//        wd.drawRipple(designPane);
+//    }
 }

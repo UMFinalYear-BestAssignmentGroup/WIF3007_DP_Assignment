@@ -3,12 +3,15 @@
  */
 package background;
 
+import javafx.scene.layout.Pane;
+
 /**
  *
  * @author Lee Peh Ting
  */
 public abstract class Outdoor extends Location{
-    Weather weather;
-    
-    public void setWeather(){}
+    Weather wd;
+    public void setWeather(Pane pane, Weather wt){
+        wt.drawRipple(pane);
+    }
 }

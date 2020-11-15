@@ -193,7 +193,7 @@ public class BackgroundBox extends VBox{
             bg = new Background(bgImg);
             designPane.setBackground(bg);
             /*The Weather only visible for Outdoor*/
-            displayWeather();
+            displayWeather(lc);
         });
         
         isLocation.setPadding(new Insets(10));
@@ -204,7 +204,7 @@ public class BackgroundBox extends VBox{
     }
 
     /*Weather options only available for Outdoor*/
-    private void displayWeather(){
+    private void displayWeather(Location lc){
         /*Control Panel design*/
         Label instruction3 = new Label("Weather (Optional): ");
         RadioButton raining = new RadioButton("Raining");
@@ -221,15 +221,22 @@ public class BackgroundBox extends VBox{
         /*When Snowing is selected*/
         snowing.setOnAction((t)->{
             if(isRainy == true){wd.stopAnimation(); isRainy =false;}
+            /*Set the Weather to Snowing*/
             wd = new Snowing();
-            wd.drawRipple(designPane);
+            //wd.drawRipple(designPane);
+            /*Downcast Location to Outdoor*/
+            Outdoor od = (Outdoor) lc;
+            od.setWeather(designPane, wd);
             isSnowing = true;
         });
         /*When Raining is selected*/
         raining.setOnAction((t)->{
             if(isSnowing == true){ wd.stopAnimation(); isSnowing=false;}
             wd = new Raining();
-            wd.drawRipple(designPane);
+            //wd.drawRipple(designPane);
+            /*Downcast Location to Outdoor*/
+            Outdoor od = (Outdoor) lc;
+            od.setWeather(designPane, wd);
             isRainy = true;
         });
         

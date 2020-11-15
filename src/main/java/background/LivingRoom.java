@@ -9,6 +9,6 @@ package background;
  * @author User
  */
 public abstract class LivingRoom extends Location{
-    /*Replace the Background Image with a new ImageURL*/
+    /*Replace the Background Image with a new ImageURL, a room without any furnitures*/
     public abstract String emptyRoom();
 }
