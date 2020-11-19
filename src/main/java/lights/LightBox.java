@@ -98,6 +98,7 @@ public class LightBox extends VBox{
         //set radio buttons for rhythm and their values
         noneButton = new RadioButton("None");
         noneButton.setUserData("none");
+        noneButton.setSelected(true);
         slowButton = new RadioButton("Slow");
         slowButton.setUserData("slow");
         fastButton = new RadioButton("Fast");
@@ -131,21 +132,21 @@ public class LightBox extends VBox{
         //Setting color of lights
         purpleCB.selectedProperty().addListener((ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) -> {
             if(new_val){
-                colorSet.add(Color.PLUM);
+                colorSet.add(Color.FUCHSIA);
                 lights.setColor(colorSet);
             }
             else{
-                colorSet.remove(Color.PLUM);
+                colorSet.remove(Color.FUCHSIA);
                 lights.setColor(colorSet);
             }
         });
         greenCB.selectedProperty().addListener((ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) -> {
             if(new_val){
-                colorSet.add(Color.PALEGREEN);
+                colorSet.add(Color.CHARTREUSE);
                 lights.setColor(colorSet);
             }
             else{
-                colorSet.remove(Color.PALEGREEN);
+                colorSet.remove(Color.CHARTREUSE);
                 lights.setColor(colorSet);
             }
         });
@@ -173,7 +174,7 @@ public class LightBox extends VBox{
         //setting the rhythm of the lights
         rhythm_group.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> ov, Toggle t, Toggle t1) -> {
             if (rhythm_group.getSelectedToggle() != null) {
-                System.out.println("Set to " + rhythm_group.getSelectedToggle().getUserData().toString());
+                System.out.println("Rhythm set to " + rhythm_group.getSelectedToggle().getUserData().toString());
                 switch (rhythm_group.getSelectedToggle().getUserData().toString()) {
                     case "none":
                         rhythmType = 0;
@@ -199,6 +200,7 @@ public class LightBox extends VBox{
             lineLights.setVisible(true);
             colorSet.add(Color.YELLOW); //adds yellow color to the list
             showLights(colorSet);
+            System.out.println("Lights are turned on");
         });
         
         //off button click to off lights
@@ -207,11 +209,12 @@ public class LightBox extends VBox{
             onButton.setVisible(true);
             onButton.setManaged(true);
             removeLights();
+            System.out.println("Lights are turned off");
         });
         
         
         //add all labels and buttons to the design pane
-        getChildren().addAll(clabel_box, cBox1, cBox2, slabel_box, btn_box, rlabel_box, rhythm_group_toggle1);
+        getChildren().addAll(slabel_box, btn_box, clabel_box, cBox1, cBox2, rlabel_box, rhythm_group_toggle1);
         designPane.getChildren().addAll(lineLights);
         
     }
