@@ -33,7 +33,7 @@ import javafx.stage.Stage;
  */
 public class DecorationBox extends VBox{
     String cny_decoration_array[] = {"Couplet", "Tanglong"};
-    String raya_decoration_array[] = {"Ketupat 1", "Ketupat 2"};
+    String raya_decoration_array[] = {"Ketupat", "Moon Backdrop"};
     ComboBox decoration_choice;
     
     Pane designPane;
@@ -229,6 +229,7 @@ public class DecorationBox extends VBox{
                
         
         // add components
+        setPadding(new Insets(10));
         getChildren().addAll(
                 btn_box, listView, visible_group_toggle,
 //                txt_select_deco,
@@ -288,12 +289,12 @@ public class DecorationBox extends VBox{
             System.out.println(decoration_choice.getValue().toString() + " is chosen");
             
             
-            if (decoration_choice.getValue().equals("Ketupat 1")) {
+            if (decoration_choice.getValue().equals("Ketupat")) {
                 festival = new EidDecoration1();
                 festival.selectDecoration();
                 decorationList.add(festival);
                 System.out.println("Displaying Ketupat 1");
-            } else if(decoration_choice.getValue().equals("Ketupat 2")){
+            } else if(decoration_choice.getValue().equals("Moon Backdrop")){
                 festival = new EidDecoration2();
                 festival.selectDecoration();
                 decorationList.add(festival);

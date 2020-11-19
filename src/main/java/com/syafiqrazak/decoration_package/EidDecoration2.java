@@ -11,7 +11,7 @@ package com.syafiqrazak.decoration_package;
  */
 public class EidDecoration2 extends DecorationFactory {
     public EidDecoration2(){
-        name = "Ketupat";
-        location = "img/KetupatDeco2.png";
+        name = "Moon Backdrop";
+        location = "img/Backdrop.png";
     }
 }
