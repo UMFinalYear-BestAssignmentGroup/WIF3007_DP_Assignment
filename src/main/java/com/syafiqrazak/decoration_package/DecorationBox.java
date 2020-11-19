@@ -32,7 +32,7 @@ import javafx.stage.Stage;
  * @author syafiqrazak
  */
 public class DecorationBox extends VBox{
-    String cny_decoration_array[] = {"Red Paper", "Tanglong"};
+    String cny_decoration_array[] = {"Couplet", "Tanglong"};
     String raya_decoration_array[] = {"Ketupat 1", "Ketupat 2"};
     ComboBox decoration_choice;
     
@@ -297,7 +297,7 @@ public class DecorationBox extends VBox{
                 festival = new EidDecoration2();
                 festival.selectDecoration();
                 decorationList.add(festival);
-            } else if(decoration_choice.getValue().equals("Red Paper")){
+            } else if(decoration_choice.getValue().equals("Couplet")){
                 festival = new CNYDecoration2();
                 festival.selectDecoration();
                 decorationList.add(festival);
