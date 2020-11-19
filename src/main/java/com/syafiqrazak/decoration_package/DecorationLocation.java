@@ -36,4 +36,10 @@ public class DecorationLocation extends Decorator {
         }
         System.out.println("Inside location 1");
     }
+    
+    @Override
+    public void setVisibility(boolean v, DecorationItem di) {
+        System.out.println("Inside DecorationVisibility");
+        decorationItem.setVisibility(v, di);
+    }
 }

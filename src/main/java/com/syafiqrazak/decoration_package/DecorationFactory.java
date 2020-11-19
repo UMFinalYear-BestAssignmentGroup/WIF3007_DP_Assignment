@@ -37,7 +37,7 @@ public abstract class DecorationFactory extends ImageView implements DecorationI
         }
         size = getFitHeight();
 //        setRotate(90);
-//        return this;
+//        return this;z
     }
 //    @Override
 //    public void selectDecoration(Pane designPane) {
@@ -63,6 +63,11 @@ public abstract class DecorationFactory extends ImageView implements DecorationI
     @Override
     public void rotate(double degree, DecorationItem di){
         setRotate(degree);
+    }
+    
+    @Override
+    public void setVisibility(boolean v, DecorationItem di){
+        setVisible(v);
     }
 
     @Override

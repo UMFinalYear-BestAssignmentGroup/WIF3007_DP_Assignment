@@ -101,7 +101,7 @@ public class FoodBox extends VBox {
         
         btn_remove_food.setOnAction((t) -> {
             foodlist.removeFoodItem(listView.getSelectionModel().getSelectedItem().toString(), designPane);
-            updateListView();
+            updateListView();   
         });
         
         x_slider.valueProperty().addListener((ObservableValue<? extends Number> ov, Number t, Number t1) -> {

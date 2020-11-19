@@ -5,13 +5,7 @@
  */
 package com.syafiqrazak.decoration_package;
 
-import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javax.swing.ImageIcon;
+
 /**
  *
  * @author user
@@ -36,10 +30,17 @@ public class DecorationResize extends Decorator {
         System.out.println("Inside resizwe method deco");
         setFitHeight(scale);
     }
-        @Override
+    @Override
     public void resize(double scale, DecorationItem di){
         System.out.println("Inside resizwe method deco 2");
         decorationItem.resize(scale, di);
 //        di.setFitHeight(scale);
+//        decorationItem.setFitHeight(scale);
+    }
+    
+//    @Override
+    public void setVisibility(boolean v, DecorationItem di) {
+        System.out.println("Inside DecorationVisibility");
+        decorationItem.setVisibility(v, di);
     }
 }

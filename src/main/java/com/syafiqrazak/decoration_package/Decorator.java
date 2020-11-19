@@ -41,5 +41,10 @@ public abstract class Decorator extends ImageView implements DecorationItem{
     public void location(double slider, int length, String orientation, DecorationItem di){
         
     }
+//    @Override
+    public void setVisibility(boolean v, int length, DecorationItem di){
+        System.out.println("Visibility set to " + v);
+        setVisible(v);
+    }
     
 }

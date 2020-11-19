@@ -7,18 +7,14 @@ package com.syafiqrazak.decoration_package;
 
 /**
  *
- * @author syafiqRazak
+ * @author user
  */
-public class DecorationRotation extends Decorator {
-    public DecorationRotation(DecorationItem decorationItem) {
+public class DecorationVisibility extends Decorator {
+    
+     public DecorationVisibility(DecorationItem decorationItem) {
       super(decorationItem);	
-//        setRotate(200);	
+        setFitHeight(200);	
    }
-
-    @Override
-    public void rotate(double degree, DecorationItem di) {
-        decorationItem.rotate(degree, di);
-    }
 
     @Override
     public void resize(double arg0, DecorationItem arg1) {

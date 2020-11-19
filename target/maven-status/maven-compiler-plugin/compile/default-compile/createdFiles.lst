@@ -3,6 +3,7 @@ YPositionObserver.class
 com\syafiqrazak\decoration_package\DecorationResize.class
 FoodCNYFactory.class
 com\syafiqrazak\decoration_package\CNYDecoration2.class
+com\syafiqrazak\decoration_package\DecorationVisibility.class
 FoodList.class
 YeeSang.class
 com\syafiqrazak\decoration_package\DecorationLocation.class

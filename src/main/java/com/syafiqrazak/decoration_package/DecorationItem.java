@@ -15,4 +15,5 @@ public interface DecorationItem {
     void resize(double scale, DecorationItem di);
     void rotate(double degree, DecorationItem di);
     void location(double slider, int length, String orientation, DecorationItem di);
+    void setVisibility(boolean visible, DecorationItem di);
 }
