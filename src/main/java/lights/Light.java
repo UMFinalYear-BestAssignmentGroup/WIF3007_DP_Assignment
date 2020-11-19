@@ -32,6 +32,7 @@ public class Light {
     int setRandom;
     
     //variable for fading transition used for rhythm
+    List<FadeTransition> flickerObjs =  new ArrayList<>(); //list to store each light bulbs fade transition 
     FadeTransition ft;
     
     private List<LightObserver> observers = new ArrayList<LightObserver>(); //create list of observers
@@ -88,11 +89,20 @@ public class Light {
     
     //recolor the lights once color is chosen
     public void resetLights(List<Circle> light,List<Color> color){
-        Circle lights; 
+        Circle lightBulb; 
         for (int i = 0 ; i < light.size() ; i++) {
-            lights = light.get(i); //get individual light
+            lightBulb = light.get(i); //get individual light
             setRandom = rand.nextInt(color.size());
-            lights.setFill(color.get(setRandom)); //color individual light
+            lightBulb.setFill(color.get(setRandom)); //color individual light
+            
+            //set drop shadow(shadow behind lights)
+            DropShadow dropShadow = new DropShadow(); 
+            dropShadow.setBlurType(BlurType.GAUSSIAN);
+            dropShadow.setColor(color.get(setRandom));
+            dropShadow.setOffsetX(3); 
+            dropShadow.setOffsetY(2);
+
+            lightBulb.setEffect(dropShadow);
         }
     }
     
@@ -108,13 +118,14 @@ public class Light {
     
     //set fade animation to lights to give flickering rhythm
     public void flickerLights(List<Circle> light, int rhythmType){   
-        Circle lights; 
+        Circle lightBulb; 
 
         for (int i = 0 ; i < light.size() ; i++) {
-            lights = light.get(i); //get individual light
+            lightBulb = light.get(i); //get individual light
             
             if(rhythmType == 1){  
-                ft = new FadeTransition(Duration.millis(600), lights);
+                ft = new FadeTransition(Duration.millis(600), lightBulb);
+                flickerObjs.add(ft);
                 ft.setFromValue(1.0);
                 ft.setToValue(0.1);
                 ft.setCycleCount(Timeline.INDEFINITE);
@@ -122,7 +133,8 @@ public class Light {
                 ft.play();
             }
             else if(rhythmType == 2){
-                ft = new FadeTransition(Duration.millis(300), lights);
+                ft = new FadeTransition(Duration.millis(300), lightBulb);
+                flickerObjs.add(ft);
                 ft.setFromValue(0.1);
                 ft.setToValue(1.0);
                 ft.setCycleCount(Timeline.INDEFINITE);
@@ -130,13 +142,11 @@ public class Light {
                 ft.play();
             } 
             else{
-                ft = new FadeTransition(Duration.millis(2000), lights);
-                ft.setFromValue(0.1);
-                ft.setToValue(1.0);
-                ft.setCycleCount(1);
-                ft.setAutoReverse(true);
-                ft.play();
-                ft.stop();
+                //stop rhythm
+                for(FadeTransition flicker : flickerObjs){
+                    flicker.stop();
+                    lightBulb.setOpacity(1);
+                }
             }
         }
     }
