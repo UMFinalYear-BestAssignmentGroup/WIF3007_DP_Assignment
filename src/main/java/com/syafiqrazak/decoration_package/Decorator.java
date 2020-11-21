@@ -27,10 +27,10 @@ public abstract class Decorator extends ImageView implements DecorationItem{
     public void selectDecoration() {
         decorationItem.selectDecoration();
     }
-    @Override
-    public void resize(double scale){
-        setFitHeight(scale);
-    }
+//    @Override
+//    public void resize(double scale){
+//        setFitHeight(scale);
+//    }
     
     @Override
     public void rotate(double degree, DecorationItem di){

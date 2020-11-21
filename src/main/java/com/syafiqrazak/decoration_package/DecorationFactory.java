@@ -36,24 +36,7 @@ public abstract class DecorationFactory extends ImageView implements DecorationI
             ex.getStackTrace();
         }
         size = getFitHeight();
-//        setRotate(90);
-//        return this;z
     }
-//    @Override
-//    public void selectDecoration(Pane designPane) {
-//        try {
-//            setImage(new Image(new FileInputStream(location)));
-//        } catch (FileNotFoundException ex) {
-//            ex.getStackTrace();
-//        }
-//        size = getFitHeight();
-//    }
-    
-    @Override
-    public void resize(double scale){
-        
-    }
-
     
     @Override
     public void resize(double scale, DecorationItem di){

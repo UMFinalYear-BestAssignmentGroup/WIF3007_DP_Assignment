@@ -176,6 +176,13 @@ public class DecorationBox extends VBox{
         listView.getSelectionModel().selectedItemProperty().addListener((ObservableValue ov, Object t, Object t1) -> {
             selectedIndex = listView.getSelectionModel().getSelectedIndex();
             if (t1 != null) {
+                //set the slider value to what it left before
+                di = decorationList.get(listView.getSelectionModel().getSelectedIndex());
+                x_slider_deco.setValue(0);
+                y_slider_deco.setValue(0);
+                size_slider_deco.setValue(200);
+                rotation_slider_deco.setValue(0);
+                
                 System.out.println("Set control to " + t1.toString());
                 System.out.println(listView.getSelectionModel().getSelectedIndex());
                 
@@ -186,31 +193,36 @@ public class DecorationBox extends VBox{
                 
                 //resize listener
                 size_slider_deco.valueProperty().addListener((ObservableValue<? extends Number> ovo, Number to, Number t1o) -> {
-                    di = decorationList.get(listView.getSelectionModel().getSelectedIndex());
+//                    di = decorationList.get(listView.getSelectionModel().getSelectedIndex());
+//                    di = DecorationResize(decorationList.get(listView.getSelectionModel().getSelectedIndex()));
                     di.resize(size_slider_deco.getValue(),di);
                 });
                 
                 //rotation listener
                 rotation_slider_deco.valueProperty().addListener((ObservableValue<? extends Number> ovo, Number to, Number t1o) -> {
-                     di = decorationList.get(listView.getSelectionModel().getSelectedIndex());
+//                     di = decorationList.get(listView.getSelectionModel().getSelectedIndex());
+//                    di = DecorationRotation(decorationList.get(listView.getSelectionModel().getSelectedIndex()));
                     di.rotate(rotation_slider_deco.getValue(), di);
                 });
                 
                 //x-coordinate listener
                 x_slider_deco.valueProperty().addListener((ObservableValue<? extends Number> ovo, Number to, Number t1o) -> {
-                     di = decorationList.get(listView.getSelectionModel().getSelectedIndex());
+//                     di = decorationList.get(listView.getSelectionModel().getSelectedIndex());
+//                     di = DecorationLocation(decorationList.get(listView.getSelectionModel().getSelectedIndex()));
                     di.location(x_slider_deco.getValue(), design_width-150, "horizontal", di);
                 });
 
                 //y-coordinate listener
                 y_slider_deco.valueProperty().addListener((ObservableValue<? extends Number> ovo, Number to, Number t1o) -> {
-                     di = decorationList.get(listView.getSelectionModel().getSelectedIndex());
+//                     di = decorationList.get(listView.getSelectionModel().getSelectedIndex());
+//                     di = DecorationLocation(decorationList.get(listView.getSelectionModel().getSelectedIndex()));
                     di.location(y_slider_deco.getValue(), design_height-100, "vertical", di);
                 });
                 
                 //visibility listener
                 visible_group.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> ovo, Toggle to, Toggle t1o) -> {
-                    di = decorationList.get(listView.getSelectionModel().getSelectedIndex());
+//                    di = decorationList.get(listView.getSelectionModel().getSelectedIndex());
+//                    di = DecorationVisibility(decorationList.get(listView.getSelectionModel().getSelectedIndex()));
                     if (visible_group.getSelectedToggle() != null && di != null) {
                         di.setVisibility(Boolean.parseBoolean(visible_group.getSelectedToggle().getUserData().toString()),di);
                     }

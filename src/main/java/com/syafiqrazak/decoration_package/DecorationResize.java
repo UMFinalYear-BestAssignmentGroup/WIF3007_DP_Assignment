@@ -21,15 +21,7 @@ public class DecorationResize extends Decorator {
     public void selectDecoration(){
         decorationItem.selectDecoration();
     }
-    
-    private void resize(DecorationItem decorationItem){
         
-    }
-    @Override
-    public void resize(double scale){
-        System.out.println("Inside resizwe method deco");
-        setFitHeight(scale);
-    }
     @Override
     public void resize(double scale, DecorationItem di){
         System.out.println("Inside resizwe method deco 2");
