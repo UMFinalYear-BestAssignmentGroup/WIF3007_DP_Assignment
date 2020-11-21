@@ -38,7 +38,6 @@ public class BackgroundBox extends VBox{
     Boolean isRainy, isSnowing=false; //Check current selected Weather
     FileInputStream imgURL; //To open Image file
     Image img; 
-    Label isSourceLabel;
     Location lc;
     Random random = new Random();
     Time td = new Time();

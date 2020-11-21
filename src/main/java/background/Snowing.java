@@ -63,7 +63,10 @@ public class Snowing implements Weather{
 
     @Override
     public void stopAnimation() {
-        for(TranslateTransition tt : objectArr){tt.stop();}
+        for(TranslateTransition tt : objectArr){tt.stop();
+        Ellipse tmp = (Ellipse)tt.getNode();
+        tmp.setVisible(false);
+        }
     }
 
     @Override

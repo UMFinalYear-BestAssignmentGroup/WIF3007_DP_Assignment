@@ -61,7 +61,10 @@ public class Raining implements Weather{
     @Override
     public void stopAnimation() {
         /*Stop every created object*/
-        for(TranslateTransition tt : objectArr){tt.stop();}
+        for(TranslateTransition tt : objectArr){tt.stop();
+        Ellipse tmp = (Ellipse)tt.getNode();
+        tmp.setVisible(false);
+        }
     }
 
     @Override
