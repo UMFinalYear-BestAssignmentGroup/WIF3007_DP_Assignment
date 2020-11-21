@@ -49,16 +49,7 @@ public class MainActivity extends Application {
         background_titledpane.setLayoutY(1);
 
         //settings for music
-        RadioButton button4 = new RadioButton("HBase");
-        RadioButton button5 = new RadioButton("MongoDB");
-        RadioButton button6 = new RadioButton("Neo4j");
-        ToggleGroup group2 = new ToggleGroup();
-        group2.getToggles().addAll(button4, button5, button6);
-
-        VBox music_vbox = new VBox(10);
-        music_vbox.setPadding(new Insets(10));
-        music_vbox.getChildren().addAll(button4, button5, button6);
-
+        MusicSelector music_vbox = new MusicSelector(designPane);
         TitledPane music_titledpane = new TitledPane("Music", music_vbox);
         music_titledpane.setLayoutX(1);
         music_titledpane.setLayoutY(1);
