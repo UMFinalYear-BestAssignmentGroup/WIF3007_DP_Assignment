@@ -99,14 +99,15 @@ public class BackgroundBox extends VBox{
         /*Radio button with two options -- Day or Night*/
         RadioButton dayTime = new RadioButton("Day");
         RadioButton nightTime = new RadioButton("Night");
+        RadioButton offTime = new RadioButton("Off");
         ToggleGroup timeGroup = new ToggleGroup();
-        timeGroup.getToggles().addAll(dayTime, nightTime);
+        timeGroup.getToggles().addAll(dayTime, nightTime, offTime);
         VBox timeVBox = new VBox(3);
         HBox timeHBoxHdr = new HBox();
-        HBox timeHBoxL1 = new HBox(2);
+        HBox timeHBoxL1 = new HBox(3);
         timeHBoxHdr.setPadding(new Insets(2));
         timeHBoxHdr.getChildren().addAll(instruction2);
-        timeHBoxL1.getChildren().addAll(dayTime, nightTime);
+        timeHBoxL1.getChildren().addAll(dayTime, nightTime, offTime);
         timeVBox.getChildren().addAll(timeHBoxHdr, timeHBoxL1);
         /*When a Day is selected*/
         dayTime.setOnAction((t)->{
@@ -117,6 +118,10 @@ public class BackgroundBox extends VBox{
         nightTime.setOnAction((t)->{
             /*Set the Lighting for BgImage with DeepSkyBlue color*/
             designPane.setEffect(td.setDecorator(Color.DEEPSKYBLUE));
+        });
+        /*When user which to off the Time effect*/
+        offTime.setOnAction((t)->{
+            
         });
         
         getChildren().addAll(timeVBox);
@@ -208,15 +213,18 @@ public class BackgroundBox extends VBox{
         Label instruction3 = new Label("Weather (Optional): ");
         RadioButton raining = new RadioButton("Raining");
         RadioButton snowing = new RadioButton("Snowing");
+        RadioButton offWeather = new RadioButton("Off");
         ToggleGroup weatherGroup = new ToggleGroup();
-        weatherGroup.getToggles().addAll(raining, snowing);
+        weatherGroup.getToggles().addAll(raining, snowing, offWeather);
         weatherVBox = new VBox(3);
         HBox weatherHBoxHdr = new HBox();
         HBox weatherHBoxL1 = new HBox(2);
+        HBox weatherHBoxL2 = new HBox(1);
         weatherHBoxHdr.setPadding(new Insets(2));
         weatherHBoxHdr.getChildren().addAll(instruction3);
         weatherHBoxL1.getChildren().addAll(raining, snowing);
-        weatherVBox.getChildren().addAll(weatherHBoxHdr, weatherHBoxL1);
+        weatherHBoxL2.getChildren().addAll(offWeather);
+        weatherVBox.getChildren().addAll(weatherHBoxHdr, weatherHBoxL1, offWeather);
         /*When Snowing is selected*/
         snowing.setOnAction((t)->{
             if(isRainy == true){wd.stopAnimation(); isRainy =false;}
@@ -237,6 +245,13 @@ public class BackgroundBox extends VBox{
             Outdoor od = (Outdoor) lc;
             od.setWeather(designPane, wd);
             isRainy = true;
+        });
+        
+        /*When user wish to off the Weather animation*/
+        offWeather.setOnAction((t)->{
+            wd.stopAnimation();
+            isSnowing=false;
+            isRainy=false;
         });
         
         getChildren().addAll(weatherVBox);
