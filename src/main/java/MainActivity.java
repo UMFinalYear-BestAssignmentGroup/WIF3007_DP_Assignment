@@ -1,5 +1,6 @@
 
 import background.BackgroundBox;
+import com.syafiqrazak.decoration_package.DecorationBox;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
@@ -55,12 +56,11 @@ public class MainActivity extends Application {
         music_titledpane.setLayoutY(1);
 
         //settings for decorations
-        VBox decorations_vbox = new VBox(10);
-        decorations_vbox.setPadding(new Insets(10));
-
-        TitledPane decorations_titledpane = new TitledPane("Decorations", decorations_vbox);
-        decorations_titledpane.setLayoutX(1);
-        decorations_titledpane.setLayoutY(1);
+        
+        DecorationBox decoration_vbox = new DecorationBox(designPane);
+        TitledPane decoration_titledpane = new TitledPane("Decoration", decoration_vbox);
+        decoration_titledpane.setLayoutX(1);
+        decoration_titledpane.setLayoutY(1);
 
         //settings for animation
         VBox animation_vbox = new VBox(10);
@@ -80,7 +80,7 @@ public class MainActivity extends Application {
         Accordion accor = new Accordion();
         accor.getPanes().add(background_titledpane);
         accor.getPanes().add(music_titledpane);
-        accor.getPanes().add(decorations_titledpane);
+        accor.getPanes().add(decoration_titledpane);
         accor.getPanes().add(animation_titledpane);
         accor.getPanes().add(food_titledpane);
         VBox vbox = new VBox(accor);
