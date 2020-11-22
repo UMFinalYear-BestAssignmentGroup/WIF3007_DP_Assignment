@@ -14,6 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import lights.LightBox;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -63,7 +64,7 @@ public class MainActivity extends Application {
         decoration_titledpane.setLayoutY(1);
 
         //settings for animation
-        VBox animation_vbox = new VBox(10);
+        VBox animation_vbox = new LightBox(designPane);
         animation_vbox.setPadding(new Insets(10));
 
         TitledPane animation_titledpane = new TitledPane("Animation", animation_vbox);
