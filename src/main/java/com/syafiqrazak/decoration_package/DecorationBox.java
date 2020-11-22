@@ -189,7 +189,7 @@ public class DecorationBox extends VBox{
                     btn_visible_true.setSelected(false);
                     btn_visible_false.setSelected(true);
                 }
-                 System.out.println("Visibility in main: " + di.getVisibility(di));
+                System.out.println("Visibility in main: " + di.getVisibility(di));
                 
                 System.out.println("Set control to " + t1.toString());
                 System.out.println(listView.getSelectionModel().getSelectedIndex());
