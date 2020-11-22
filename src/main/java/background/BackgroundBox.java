@@ -116,12 +116,12 @@ public class BackgroundBox extends VBox{
         });
         /*When a Night is selected*/
         nightTime.setOnAction((t)->{
-            /*Set the Lighting for BgImage with DeepSkyBlue color*/
-            designPane.setEffect(td.setDecorator(Color.DEEPSKYBLUE));
+            /*Set the Lighting for BgImage with Grey color*/
+            designPane.setEffect(td.setDecorator(Color.GREY));
         });
         /*When user which to off the Time effect*/
         offTime.setOnAction((t)->{
-            
+            designPane.setEffect(null);
         });
         
         getChildren().addAll(timeVBox);
