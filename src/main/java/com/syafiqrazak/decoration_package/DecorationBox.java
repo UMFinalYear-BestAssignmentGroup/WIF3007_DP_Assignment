@@ -178,10 +178,18 @@ public class DecorationBox extends VBox{
             if (t1 != null) {
                 //set the slider value to what it left before
                 di = decorationList.get(listView.getSelectionModel().getSelectedIndex());
-                x_slider_deco.setValue(0);
-                y_slider_deco.setValue(0);
-                size_slider_deco.setValue(200);
-                rotation_slider_deco.setValue(0);
+                x_slider_deco.setValue(di.getXCoordinate(di));
+                y_slider_deco.setValue(di.getYCoordinate(di));
+                size_slider_deco.setValue(di.getSize(di));
+                rotation_slider_deco.setValue(di.getRotation(di));
+                if (di.getVisibility(di)) {
+                    btn_visible_true.setSelected(true);
+                    btn_visible_false.setSelected(false);
+                } else {
+                    btn_visible_true.setSelected(false);
+                    btn_visible_false.setSelected(true);
+                }
+                 System.out.println("Visibility in main: " + di.getVisibility(di));
                 
                 System.out.println("Set control to " + t1.toString());
                 System.out.println(listView.getSelectionModel().getSelectedIndex());

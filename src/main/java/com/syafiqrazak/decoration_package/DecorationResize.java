@@ -35,4 +35,30 @@ public class DecorationResize extends Decorator {
         System.out.println("Inside DecorationVisibility");
         decorationItem.setVisibility(v, di);
     }
+    
+    @Override
+    public double getSize(DecorationItem di){
+        double temp = decorationItem.getSize(di);
+        return 0;
+    }
+
+    @Override
+    public double getXCoordinate(DecorationItem di) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double getYCoordinate(DecorationItem di) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double getRotation(DecorationItem di) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean getVisibility(DecorationItem di) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
