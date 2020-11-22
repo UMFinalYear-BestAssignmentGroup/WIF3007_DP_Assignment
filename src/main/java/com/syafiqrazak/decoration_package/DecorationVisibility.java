@@ -26,4 +26,29 @@ public class DecorationVisibility extends Decorator {
         System.out.println("Inside DecorationVisibility");
         decorationItem.setVisibility(v, di);
     }
+    
+    @Override
+    public boolean getVisibility(DecorationItem di) {
+        return di.getVisibility(di);
+    }
+
+    @Override
+    public double getSize(DecorationItem di) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double getXCoordinate(DecorationItem di) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double getYCoordinate(DecorationItem di) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double getRotation(DecorationItem di) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

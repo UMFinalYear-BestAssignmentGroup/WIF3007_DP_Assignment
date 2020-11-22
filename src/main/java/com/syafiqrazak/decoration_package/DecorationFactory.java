@@ -21,6 +21,11 @@ import javax.swing.ImageIcon;
 public abstract class DecorationFactory extends ImageView implements DecorationItem {
 
     public double size;
+    public double XCoordinate;
+    public double YCoordinate;
+    public double rotation;
+    public boolean visibility = true;
+    
     String name;
     String location;
     
@@ -40,16 +45,20 @@ public abstract class DecorationFactory extends ImageView implements DecorationI
     
     @Override
     public void resize(double scale, DecorationItem di){
+        size = scale;
         setFitHeight(scale);
     }
 
     @Override
     public void rotate(double degree, DecorationItem di){
+        rotation = degree;
         setRotate(degree);
     }
     
     @Override
     public void setVisibility(boolean v, DecorationItem di){
+        visibility = v;
+        System.out.println("Inside this visible");
         setVisible(v);
     }
 
@@ -57,12 +66,34 @@ public abstract class DecorationFactory extends ImageView implements DecorationI
     public void location(double slider, int length, String orientation, DecorationItem di){
 //        setFitHeight(scale);
         if ("horizontal".equals(orientation)) {
+            XCoordinate = slider;
             System.out.println("X:" + (slider * length) / 100);
             setX((slider * length) / 100);
         } else if ("vertical".equals(orientation)) {
+            YCoordinate = slider;
             setY((slider * length) / 100);
             System.out.println("Y:" + (slider * length) / 100);
         }
+    }
+    
+    public double getSize(DecorationItem di){
+        return size;
+    }
+    
+    public double getXCoordinate(DecorationItem di){
+        return XCoordinate;
+    }
+    
+    public double getYCoordinate(DecorationItem di){
+        return YCoordinate;
+    }
+    
+    public double getRotation(DecorationItem di){
+        return rotation;
+    }
+    
+    public boolean getVisibility(DecorationItem di){
+        return visibility;
     }
 }
 
