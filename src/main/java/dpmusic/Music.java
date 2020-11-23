@@ -33,11 +33,6 @@ public class Music {
         player = new MediaPlayer(me);
     }
     
-    void initAddedMusic(String songPath) {
-        me = new Media(new File(songPath).toURI().toString());
-        player = new MediaPlayer(me);
-    }
-    
     void play() {
         player.play();
     }
