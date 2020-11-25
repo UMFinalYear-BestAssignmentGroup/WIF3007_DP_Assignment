@@ -13,5 +13,4 @@ import javafx.scene.layout.Pane;
  */
 public interface FoodFactory {
     public FoodItem addFood(String food, Pane designPane);
-    
 }

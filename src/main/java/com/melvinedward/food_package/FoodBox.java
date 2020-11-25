@@ -99,6 +99,7 @@ public class FoodBox extends VBox {
             showAddFoodScreen();
         });
         
+        //set onClick action
         btn_remove_food.setOnAction((t) -> {
             foodlist.removeFoodItem(listView.getSelectionModel().getSelectedItem().toString(), designPane);
             updateListView();
@@ -164,6 +165,7 @@ public class FoodBox extends VBox {
         getChildren().addAll(btn_box, listView, visible_group_toggle, txt_x_axis, x_slider, txt_y_axis, y_slider, txt_scale, size_slider);
     }
     
+    // updates listView to foodlist
     public void updateListView() {
         listView.getItems().clear();
         for (int i = 0; i < foodlist.getArray().size(); i++) {
@@ -171,6 +173,7 @@ public class FoodBox extends VBox {
         }
     }
     
+    // open small window to add food item
     public void showAddFoodScreen() {
         Stage stage = new Stage();
         
